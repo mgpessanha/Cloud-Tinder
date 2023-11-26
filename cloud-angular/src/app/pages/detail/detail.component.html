@@ -1,0 +1,32 @@
+<mat-card class="pessoa-detail-card">
+  <mat-card-header>
+    <div mat-card-avatar class="pessoa-detail-image"></div>
+    <mat-card-title>{{pessoa?.nome}}</mat-card-title>
+    <mat-card-subtitle>Nasceu em: {{pessoa?.dtNascimento | date: "dd/MM/yyyy"}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="pessoa?.urlImage" width="400px" height="400px" alt="">
+  <mat-card-content style="margin-top: 25px 0 25px 0;">
+    <p>
+      {{pessoa?.bio}}
+    </p>
+  </mat-card-content>
+</mat-card>
+<br>
+<h1 style="text-decoration: underline;">Contatos Adicionados</h1>
+
+<button mat-flat-button color="primary" (click)="mostrarAdicionarContato()">Enviar Número</button>
+<div *ngIf="showAdicionarContato == true">
+  <app-create-telefone [idPessoa]="pessoa?.id" (newTelefoneEvent)="atualizarContatos()"></app-create-telefone>
+</div>
+<mat-card *ngFor="let item of telefone" style="margin-top: 30px;">
+  <mat-card-header>
+    <mat-card-title>Wpp:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content style="margin-top: 25px 0 25px 0;">
+    <p>
+      {{item?.codigoPais}} {{item?.codigoArea}} {{item?.numero}}
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<a routerLink="/">Ver todas as pessoas</a>

@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Adicionar Celular</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Código país</mat-label>
+    <input matInput [formControl]="codPais" required />
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Código área</mat-label>
+    <input matInput [formControl]="codArea" required />
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Insira o seu número</mat-label>
+    <textarea matInput [formControl]="contato" required></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button>Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="adicionarNovoContato();">Ok</button>
+</div>

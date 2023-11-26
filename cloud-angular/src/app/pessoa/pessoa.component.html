@@ -1,0 +1,17 @@
+<div class="pessoa-container" *ngIf="pessoas && pessoas.length > 0">
+  <mat-card class="pessoa" *ngFor="let item of pessoas">
+    <mat-card-header>
+      <div mat-card-avatar class="pessoa-header-image"></div>
+      <mat-card-title>{{item.nome}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="item.urlImage" width="200px" height="200px" alt="">
+    <mat-card-content>
+      <p>
+        {{item.bio}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="redirectToDetail(item.id)">Ver Contatos</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
